@@ -35,4 +35,9 @@ export class UserStateService {
     this.user.set(username)
     return this.router.navigateByUrl('/dashboard')
   }
+  logout(){
+    localStorage.clear()
+    this.authState.set(false)
+    this.router.navigate(['/sign-in'])
+  }
 }

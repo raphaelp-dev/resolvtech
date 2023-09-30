@@ -1,0 +1,10 @@
+<div class="container" [formGroup]="form">
+  <div class="d-flex flex-column justify-content center align-items-center gap-3 p-3">
+    <span class="fs-4 align-self-start">Adicionar {{personRole}}</span>
+    <input formControlName="name" placeholder="Nome" type="text" class="form-control" />
+    <input formControlName="nif" placeholder="NIF" type="number" class="form-control" />
+    <input formControlName="phone" placeholder="Telemóvel" type="number" class="form-control" />
+    <input formControlName="email" placeholder="Email" type="email" class="form-control" />
+    <button [disabled]="this.form.invalid" (click)="save()" class="btn btn-primary">Gravar</button>
+  </div>
+</div>

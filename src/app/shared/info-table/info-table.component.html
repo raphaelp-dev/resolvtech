@@ -1,0 +1,105 @@
+<div class="container-fluid p-5">
+  <ng-container *ngIf="title !== 'equipments'; else equipments">
+    <div class="align-items-center bg-white rounded h-100 w-100 p-3">
+      <div class="row">
+        <div class="col-8 text-start">
+          <span class="fs-3">{{ title }}</span>
+        </div>
+        <div class="col-4 text-end">
+          <button (click)="createUser()" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-2 border-end"><span class="fs-6">Nome</span></div>
+        <div class="col-2 border-end"><span class="fs-6">NIF</span></div>
+        <div class="col-2 border-end"><span class="fs-6">Telemóvel</span></div>
+        <div class="col-4 border-end"><span class="fs-6">Email</span></div>
+        <div class="col-2 text-center"><span class="fs-6">Ações</span></div>
+      </div>
+      <ng-container *ngFor="let item of data">
+        <hr />
+        <div class="row mt-2 mb-2 align-items-center">
+          <div class="col-2 border-end">
+            <span class="fs-6">{{ title + " " + item.name }}</span>
+          </div>
+          <div class="col-2 border-end">
+            <span class="fs-6">{{ item.NIF }}</span>
+          </div>
+          <div class="col-2 border-end">
+            <span class="fs-6">{{ item.phone }}</span>
+          </div>
+          <div class="col-4 border-end">
+            <span class="fs-6">{{ item.email }}</span>
+          </div>
+          <div class="col-2 text-center">
+            <div class="d-flex gap-3 justify-content-center">
+              <div class="rounded-circle bg-blue pointer">
+                <img
+                  width="20"
+                  src="../../../assets/edit.png"
+                  alt="edit button"
+                />
+              </div>
+              <div class="rounded-circle bg-red pointer">
+                <img
+                  width="20"
+                  src="../../../assets/delete.png"
+                  alt="delete button"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  <ng-template #equipments>
+    <div class="align-items-center bg-white rounded h-100 w-100 p-3">
+      <div class="row">
+        <div class="col-8 text-start">
+          <span class="fs-3">{{ title }}</span>
+        </div>
+        <div class="col-4 text-end">
+          <button (click)="createEquipment()" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-5 border-end"><span class="fs-6">Nome</span></div>
+        <div class="col-5 border-end"><span class="fs-6">Tipo</span></div>
+        <div class="col-2 text-center"><span class="fs-6">Ações</span></div>
+      </div>
+      <ng-container *ngFor="let item of data">
+        <hr />
+        <div class="row mt-2 mb-2 align-items-center">
+          <div class="col-5 border-end">
+            <span class="fs-6">{{ title + " " + item.name }}</span>
+          </div>
+          <div class="col-5 border-end">
+            <span class="fs-6">11111111</span>
+          </div>
+
+          <div class="col-2 text-center">
+            <div class="d-flex gap-3 justify-content-center">
+              <div class="rounded-circle bg-blue pointer">
+                <img
+                  width="20"
+                  src="../../../assets/edit.png"
+                  alt="edit button"
+                />
+              </div>
+              <div class="rounded-circle bg-red pointer">
+                <img
+                  width="20"
+                  src="../../../assets/delete.png"
+                  alt="delete button"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="d-flex flex-column gap-3 justify-content-center align-items-center mt-5">
+        <img width="100" src="../../../../assets/sidebar/logo-full.png" alt="logo img">
+        <span class="fs-4">Faça o seu login</span>
+        <input #username type="text" class="form-control signin-input" placeholder="Email">
+        <input #password type="text" class="form-control signin-input" placeholder="Senha">
+        <button (click)="login(username.value, password.value)" class="btn btn-primary px-4 rounded">Entrar</button>
+        <a routerLink="/sign-up" class="fs-6">Registrar</a>
+    </div>
+</div>

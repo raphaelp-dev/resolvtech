@@ -1,0 +1,9 @@
+<div class="d-flex flex-column justify-content-start align-items-center basis-100 gap-3 p-3 bg-dark h-100">
+    <img class="pointer" (click)="openOffCanvas()" width="30" src="../../../assets/sidebar/logo.png" alt="">
+    <img class="pointer" [routerLink]="'/dashboard'"  width="30" src="../../../assets/sidebar/home.png" alt="">
+    <img class="pointer" [routerLink]="'/calendar'"  width="30" src="../../../assets/sidebar/calendar.png" alt="">
+    <img class="pointer" routerLink="/clients"  width="30" src="../../../assets/sidebar/person.png" alt="">
+    <img class="pointer" routerLink="/equipments"  width="30" src="../../../assets/sidebar/equipments.png" alt="">
+    <img class="pointer" routerLink="/technician"  width="30" src="../../../assets/sidebar/tech.png" alt="">
+    <span class="fs-6 text-white pointer" (click)="logout()">Logout</span>
+</div>

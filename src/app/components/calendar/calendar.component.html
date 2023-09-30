@@ -1,0 +1,55 @@
+<div class="container-fluid p-5">
+    <div class="align-items-center bg-white rounded h-100 w-100 p-3">
+        <div class="row">
+          <div class="col-8 text-start">
+            <span class="fs-3">Agendamentos</span>
+          </div>
+          <div class="col-4 text-end">
+            <button (click)="createSchedule()" class="btn btn-primary">Adicionar Agendamento</button>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-2 border-end"><span class="fs-6">Este mês</span></div>
+          <div class="col-2 border-end"><span class="fs-6">Cliente</span></div>
+          <div class="col-2 border-end"><span class="fs-6">Data</span></div>
+          <div class="col-4 border-end"><span class="fs-6">Técnico</span></div>
+          <div class="col-2 text-center"><span class="fs-6">Ações</span></div>
+        </div>
+        <ng-container *ngFor="let item of data">
+          <hr />
+          <div class="row mt-2 mb-2 align-items-center">
+            <div [ngStyle]="{'border-left': getStatusColor(item.status)}" class="col-2 border-end">
+              <span class="fs-6">{{ item.title }}</span>
+            </div>
+            <div class="col-2 border-end">
+              <span class="fs-6">{{ item.client }}</span>
+            </div>
+            <div class="col-2 border-end">
+              <span class="fs-6">{{ item.date }}</span>
+            </div>
+            <div class="col-4 border-end">
+              <span class="fs-6">{{ item.technician}}</span>
+            </div>
+            <div class="col-2 text-center">
+              <div class="d-flex gap-3 justify-content-center">
+                <div class="rounded-circle bg-blue pointer">
+                  <img
+                    width="20"
+                    src="../../../assets/edit.png"
+                    alt="edit button"
+                  />
+                </div>
+                <div class="rounded-circle bg-red pointer">
+                  <img
+                    width="20"
+                    src="../../../assets/delete.png"
+                    alt="delete button"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>    
+</div>

@@ -21,7 +21,7 @@
         <hr />
         <div class="row mt-2 mb-2 align-items-center">
           <div class="col-2 border-end">
-            <span class="fs-6">{{ title + " " + item.name }}</span>
+            <span class="fs-6">{{ item.name }}</span>
           </div>
           <div class="col-2 border-end">
             <span class="fs-6">{{ item.NIF }}</span>
@@ -36,6 +36,7 @@
             <div class="d-flex gap-3 justify-content-center">
               <div class="rounded-circle bg-blue pointer">
                 <img
+                (click)="editPerson(item.id)"
                   width="20"
                   src="../../../assets/edit.png"
                   alt="edit button"
@@ -43,6 +44,7 @@
               </div>
               <div class="rounded-circle bg-red pointer">
                 <img
+                (click)="deletePerson(item.id)"
                   width="20"
                   src="../../../assets/delete.png"
                   alt="delete button"

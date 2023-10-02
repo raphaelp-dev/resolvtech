@@ -19,40 +19,7 @@ export class InfoTableComponent {
   private technicianService = inject(TechnicianService)
   private clientService = inject(ClientsService)
   @Output() newPerson = new EventEmitter<any>();
-  @Input() data = [
-    {
-      name: '1',
-      email: 'teste@teste.com',
-      NIF: 123,
-      phone: 123456789
-    },
-    //repeat the example above three times with different data
-    {
-      name: '2',
-      email: 'teste@teste.com',
-      NIF: 123,
-      phone: 123456789
-    },
-    {
-      name: '3',
-      email: 'teste@teste.com',
-      NIF: 123,
-      phone: 123456789
-    },
-    {
-      name: '4',
-      email: 'teste@teste.com',
-      NIF: 123,
-      phone: 123456789
-    },
-    {
-      name: '5',
-      email: 'teste@teste.com',
-      NIF: 123,
-      phone: 123456789
-    },
-
-  ];
+  @Input() data:any 
   @Input() title = 'client'
 
   createUser(){
@@ -68,5 +35,11 @@ export class InfoTableComponent {
   }
   createEquipment(){
     this.modal.open(AddEquipmentComponent, {centered:true})
+  }
+  deletePerson(id:string){
+    return this.technicianService.deleteTechnician(id)
+  }
+  editPerson(id:string){
+    return this.technicianService.editTechnician(id, {name: 'deu certo'})
   }
 }

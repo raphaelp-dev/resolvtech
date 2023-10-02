@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component,Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { TechnicianService } from 'src/app/components/technician/services/technician.service';
 
 @Component({
   selector: 'app-add-person',
@@ -15,7 +14,6 @@ export class AddPersonComponent {
   @Input() personRole = 'client'
   private modal = inject(NgbModal)
   private fb = inject(FormBuilder)
-  private technicianService = inject(TechnicianService)
   form = this.fb.group({
     name: [null, Validators.required],
     email: [null, Validators.required],

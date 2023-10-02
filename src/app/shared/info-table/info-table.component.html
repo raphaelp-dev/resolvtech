@@ -36,7 +36,6 @@
             <div class="d-flex gap-3 justify-content-center">
               <div class="rounded-circle bg-blue pointer">
                 <img
-                (click)="editPerson(item.id)"
                   width="20"
                   src="../../../assets/edit.png"
                   alt="edit button"
@@ -44,7 +43,7 @@
               </div>
               <div class="rounded-circle bg-red pointer">
                 <img
-                (click)="deletePerson(item.id)"
+                (click)="deletePerson(item.id, item.role)"
                   width="20"
                   src="../../../assets/delete.png"
                   alt="delete button"

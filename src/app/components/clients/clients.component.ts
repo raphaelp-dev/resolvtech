@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfoTableComponent } from 'src/app/shared/info-table/info-table.component';
+import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-clients',
@@ -10,5 +11,7 @@ import { InfoTableComponent } from 'src/app/shared/info-table/info-table.compone
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent {
+  private personService = inject(PersonService)
+  clients$ = this.personService.clients$
 
 }

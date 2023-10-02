@@ -1,10 +1,11 @@
 <div class="container-fluid">
     <div class="d-flex flex-column gap-3 justify-content-center align-items-center mt-5">
         <img width="100" src="../../../../assets/sidebar/logo-full.png" alt="logo img">
-        <span class="fs-4">Faça o seu login</span>
+        <span class="fs-4">Registro</span>
         <input #username type="text" class="form-control signin-input" placeholder="Email">
-        <input #password type="text" class="form-control signin-input" placeholder="Senha">
-        <button (click)="register(username.value, password.value)" class="btn btn-primary px-4 rounded">Entrar</button>
-        <a routerLink="/sign-up" class="fs-6">Registrar</a>
+        <input #password type="password" class="form-control signin-input" placeholder="Senha">
+        <input #password2 type="password" class="form-control signin-input" placeholder="Confirme sua senha">
+        <button (click)="register(username.value, password.value)" class="btn btn-primary px-4 rounded">Registrar</button>
+        <a routerLink="sign-in" class="fs-6 pointer">Voltar</a>
     </div>
 </div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "resolvtech-78706": {
+      "hosting": {
+        "resolvtech": [
+          "resolvtech-78706"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "resolvtech-78706"
+  }
+}

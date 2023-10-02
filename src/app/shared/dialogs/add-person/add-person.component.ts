@@ -1,7 +1,8 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TechnicianService } from 'src/app/components/technician/services/technician.service';
 
 @Component({
   selector: 'app-add-person',
@@ -11,9 +12,10 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-person.component.scss']
 })
 export class AddPersonComponent {
-  @Input() personRole = 'Cliente'
+  @Input() personRole = 'client'
   private modal = inject(NgbModal)
   private fb = inject(FormBuilder)
+  private technicianService = inject(TechnicianService)
   form = this.fb.group({
     name: [null, Validators.required],
     email: [null, Validators.required],
@@ -34,7 +36,13 @@ get nif(){
 }
 
   save(){
-    console.log(this.name, this.phone, this.email, this.nif)
-    this.modal.dismissAll()
+    const newPerson={
+      name: this.name,
+      email: this.email,
+      phone: this.phone,
+      nif: this.nif,
+      role: this.personRole
+    }
+    return this.modal.dismissAll(newPerson)
   }
 }

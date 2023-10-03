@@ -8,13 +8,17 @@ import { EquipmentsComponent } from './components/equipments/equipments.componen
 import { AuthGuardService } from './components/auth/services/auth-guard.service';
 import { SignInComponent } from './components/auth/sign-in/sign-in.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
+import { CalendarResolver } from './resolvers/calendar.resolver';
 
 
 const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: ()=> DashboardComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    resolve: {
+      schedules : CalendarResolver
+    }
   },
   {
     path: 'calendar',
@@ -53,6 +57,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuardService]
+  providers: [AuthGuardService, CalendarResolver]
 })
 export class AppRoutingModule { }

@@ -45,7 +45,8 @@ ngOnInit(): void {
     const newEquipment = {
       name : this.name,
       type: this.type,
-      stock : this.stock
+      stock : this.stock,
+      id: this.data.id
     }
     return this.modalRef.close(newEquipment)
   }

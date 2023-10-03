@@ -49,7 +49,8 @@ get nif(){
       email: this.email,
       phone: this.phone,
       nif: this.nif,
-      role: this.personRole
+      role: this.data.role,
+      id: this.data.id
     }
     return this.modalRef.close(newPerson)
   }

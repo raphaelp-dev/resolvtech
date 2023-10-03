@@ -16,14 +16,15 @@ export class PersonService {
 
   
   clientRef = this.af.collection('client')
-  clients$ = this.clientRef.valueChanges({idField: 'id'}).pipe(tap(val => console.log(val)),
-  map(val => {return [{name:'teste', nif: '123', email: 'teste@teste.com',id:'1', phone:123}]}))
+  clients$ = this.clientRef.valueChanges({idField: 'id'}).pipe(tap(val => console.log(val)))
 
   addPerson(person:any){
     of(this.af.collection(person.role).add({...person})).subscribe(console.log)
   }
   editPerson(person : any){
-    of(this.af.collection(person.role).add({...person})).subscribe(console.log)
+    console.log('servico')
+    console.log(person)
+    of(this.af.collection(person.role).doc(person.id).update({...person})).subscribe(console.log)
   }
   deletePerson(person:any){
     of(this.af.collection(person.role).doc(person.id).delete()).subscribe(console.log)

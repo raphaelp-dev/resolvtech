@@ -56,6 +56,7 @@ export class EditCalendarComponent implements OnInit {
       technician: this.technician,
       date: this.date,
       status: this.status,
+      id: this.data.id
     };
     this.modalRef.close(newSchedule);
   }

@@ -2,8 +2,12 @@
     <div class="row">
         <div class="col-6">
             <span class="fs-3">Bom dia, {{user}}</span>
-            <br>
-            <span>imagine um grafico bonitao aqui</span>
+            <div class="row mt-5 mb-5">
+                <div class="col-12">
+                    <span class="fs-3 fw-bold">Resumo mensal dos agendamentos</span>
+                </div>
+            </div>
+                <canvas  id="MyChart" >{{ chart }}</canvas>
         </div>
         <div class="col-6">
             <div class="bg-white rounded p-5">
@@ -12,7 +16,7 @@
                     <img src="../../../assets/sidebar/home.png" alt="calendar">
                     <div class="d-flex flex-column">
                         <span class="fs-5">{{item.title}}</span>
-                        <span class="fs-s">Agendado {{parseDate(item.date)}}</span>
+                        <span class="fs-s">Agendado {{item.date}}</span>
                     </div>
                 </div>
             </div>

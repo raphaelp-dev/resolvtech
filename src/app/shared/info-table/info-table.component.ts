@@ -47,7 +47,10 @@ export class InfoTableComponent {
     const modalRef = this.modal.open(EditPersonComponent);
     modalRef.componentInstance.data = person;
     modalRef.result.then(
-      (result) => this.personService.editPerson(result),
+      (result) => {
+        console.log('table')
+        console.log(result)
+        return this.personService.editPerson(result)},
       (err) => console.log('deu erro')
     );
   }
@@ -72,6 +75,7 @@ export class InfoTableComponent {
       .catch((err) => console.log('deu erro'));
   }
   deleteEquipment(equipment:any){
+    console.log(equipment)
     return this.equipmentService.deleteEquipment(equipment)
   }
 }

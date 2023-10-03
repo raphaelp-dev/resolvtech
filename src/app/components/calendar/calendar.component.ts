@@ -42,8 +42,8 @@ export class CalendarComponent {
     this.calendarService.deleteSchedule(schedule)
   }
   getStatusColor(status : string){
-    if(status==="open") return '5px solid green'
-    return status === "closed" ? '5px solid red' : '5px solid yellow'
+    if(status==="open") return '5px solid #b02537'
+    return status === "closed" ? '5px solid #69db5c' : '5px solid #f7c719'
   }
   
 }

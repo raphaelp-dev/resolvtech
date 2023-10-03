@@ -48,9 +48,9 @@ export class DashboardComponent  implements OnInit{
     label: ' Agendamentos',
     data: [chartData.closed, chartData.pending, chartData.open],
     backgroundColor: [
-      'green',
-      'yellow',
-      'red'		
+      '#69db5c',
+      '#f7c719',
+      '#b02537'		
     ],
     hoverOffset: 4
   }],

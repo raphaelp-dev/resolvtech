@@ -16,7 +16,10 @@ export class UserStateService {
     if(this.authState()) return of(true)
     return this.afAuth.user.pipe(
       map((val:any) => {
-        if(val.email===null) return false
+        if(val===null) {
+          this.router.navigateByUrl('/sign-in')
+          return false
+        }
         else {
           this.authState.set(true)
           this.user.set(val.email)

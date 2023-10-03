@@ -1,19 +1,21 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-add-schedule',
+  selector: 'app-edit-calendar',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './add-schedule.component.html',
-  styleUrls: ['./add-schedule.component.scss'],
+  templateUrl: './edit-calendar.component.html',
+  styleUrls: ['./edit-calendar.component.scss'],
 })
-export class AddScheduleComponent {
+export class EditCalendarComponent implements OnInit {
   types = ['open', 'pending', 'closed'];
   private modalRef = inject(NgbActiveModal);
   private fb = inject(FormBuilder);
+
+  data: any;
 
   form = this.fb.group({
     title: [null, Validators.required],
@@ -38,10 +40,15 @@ export class AddScheduleComponent {
   get status() {
     return this.form.get('status')?.value;
   }
-  get name() {
-    return this.form.get('name')?.value;
-  }
 
+  ngOnInit(): void {
+    console.log(this.data)
+    this.form.controls.title.setValue(this.data.title);
+    this.form.controls.date.setValue(this.data.date);
+    this.form.controls.client.setValue(this.data.client);
+    this.form.controls.status.setValue(this.data.status);
+    this.form.controls.technician.setValue(this.data.technician);
+  }
   save() {
     const newSchedule = {
       title: this.title,

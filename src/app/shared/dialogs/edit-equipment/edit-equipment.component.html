@@ -1,0 +1,13 @@
+<div class="container" [formGroup]="form">
+    <div class="d-flex flex-column justify-content center align-items-center gap-3 p-3">
+      <span class="fs-4 align-self-start">Adicionar Equipamento</span>
+      <input formControlName="name" placeholder="Nome" type="text" class="form-control" />
+      <label for="equipments" class="align-self-start">Equipamento</label>
+        <select name="type" id="equipments" [value]="this.type" formControlName="type" class="form-control">
+            <option *ngFor="let item of types" [value]="item">{{item}}</option>
+          </select>
+      <input formControlName="stock" placeholder="Stock" type="number" class="form-control" />
+      <button [disabled]="this.form.invalid" (click)="save()" class="btn btn-primary">Gravar</button>
+    </div>
+  </div>
+  
